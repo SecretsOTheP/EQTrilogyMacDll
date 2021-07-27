@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{78B33BC6-FD0D-456F-B152-5BB245677C25}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>eqgame_dll</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
+    <UseOfAtl>false</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>eqgame</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>eqgame</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>EQLIB_EXPORTS;CINTERFACE;_WINDOWS;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling />
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ErrorReporting>Queue</ErrorReporting>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>C:\Users\espau\Documents\GitHub\eqgame_dll\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Detours\lib;C:\Users\espau\Documents\GitHub\eqgame_dll\zlib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <OutputFile>E:\EverQuest Trilogy\eqgame.dll</OutputFile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <AdditionalDependencies>zdll.lib;ws2_32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>EQLIB_EXPORTS;CINTERFACE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\detours\inc</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling />
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ErrorReporting>Queue</ErrorReporting>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\detours\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="base_packet.cpp" />
+    <ClCompile Include="classes.cpp" />
+    <ClCompile Include="condition.cpp" />
+    <ClCompile Include="crash.cpp" />
+    <ClCompile Include="crc16.cpp" />
+    <ClCompile Include="crc32.cpp" />
+    <ClCompile Include="emu_opcodes.cpp" />
+    <ClCompile Include="emu_tcp_connection.cpp" />
+    <ClCompile Include="emu_tcp_server.cpp" />
+    <ClCompile Include="eqdb.cpp" />
+    <ClCompile Include="eqdb_res.cpp" />
+    <ClCompile Include="eqemu_config.cpp" />
+    <ClCompile Include="eqemu_exception.cpp" />
+    <ClCompile Include="eqemu_logsys.cpp" />
+    <ClCompile Include="eqgame.cpp" />
+    <ClCompile Include="eqtime.cpp" />
+    <ClCompile Include="eq_dictionary.cpp" />
+    <ClCompile Include="eq_packet.cpp" />
+    <ClCompile Include="eq_stream.cpp" />
+    <ClCompile Include="eq_stream_factory.cpp" />
+    <ClCompile Include="eq_stream_ident.cpp" />
+    <ClCompile Include="eq_stream_proxy.cpp" />
+    <ClCompile Include="faction.cpp" />
+    <ClCompile Include="FPSLimit.cpp" />
+    <ClCompile Include="guilds.cpp" />
+    <ClCompile Include="guild_base.cpp" />
+    <ClCompile Include="ipc_mutex.cpp" />
+    <ClCompile Include="item.cpp" />
+    <ClCompile Include="md5.cpp" />
+    <ClCompile Include="memory_mapped_file.cpp" />
+    <ClCompile Include="misc.cpp" />
+    <ClCompile Include="misc_functions.cpp" />
+    <ClCompile Include="mutex.cpp" />
+    <ClCompile Include="opcodemgr.cpp" />
+    <ClCompile Include="opcode_map.cpp" />
+    <ClCompile Include="packetfile.cpp" />
+    <ClCompile Include="packet_dump.cpp" />
+    <ClCompile Include="packet_dump_file.cpp" />
+    <ClCompile Include="packet_functions.cpp" />
+    <ClCompile Include="patches\patches.cpp" />
+    <ClCompile Include="patches\template.cpp" />
+    <ClCompile Include="patches\trilogy.cpp" />
+    <ClCompile Include="perl_eqdb.cpp" />
+    <ClCompile Include="perl_eqdb_res.cpp" />
+    <ClCompile Include="platform.cpp" />
+    <ClCompile Include="proc_launcher.cpp" />
+    <ClCompile Include="ptimer.cpp" />
+    <ClCompile Include="races.cpp" />
+    <ClCompile Include="rdtsc.cpp" />
+    <ClCompile Include="serverinfo.cpp" />
+    <ClCompile Include="sha1.cpp" />
+    <ClCompile Include="shareddb.cpp" />
+    <ClCompile Include="skills.cpp" />
+    <ClCompile Include="string_util.cpp" />
+    <ClCompile Include="struct_strategy.cpp" />
+    <ClCompile Include="tcp_connection.cpp" />
+    <ClCompile Include="tcp_server.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="tinyxml\tinystr.cpp" />
+    <ClCompile Include="tinyxml\tinyxml.cpp" />
+    <ClCompile Include="tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="tinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="unix.cpp" />
+    <ClCompile Include="uuid.cpp" />
+    <ClCompile Include="web_interface_utils.cpp" />
+    <ClCompile Include="worldconn.cpp" />
+    <ClCompile Include="xml_parser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="any.h" />
+    <ClInclude Include="base_data.h" />
+    <ClInclude Include="base_packet.h" />
+    <ClInclude Include="bodytypes.h" />
+    <ClInclude Include="classes.h" />
+    <ClInclude Include="clientversions.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="condition.h" />
+    <ClInclude Include="crash.h" />
+    <ClInclude Include="crc16.h" />
+    <ClInclude Include="crc32.h" />
+    <ClInclude Include="datatypes.h" />
+    <ClInclude Include="data_verification.h" />
+    <ClInclude Include="emu_opcodes.h" />
+    <ClInclude Include="emu_oplist.h" />
+    <ClInclude Include="emu_tcp_connection.h" />
+    <ClInclude Include="emu_tcp_server.h" />
+    <ClInclude Include="eqdb.h" />
+    <ClInclude Include="eqdb_res.h" />
+    <ClInclude Include="eqemu_config.h" />
+    <ClInclude Include="eqemu_config_elements.h" />
+    <ClInclude Include="eqemu_exception.h" />
+    <ClInclude Include="eqemu_logsys.h" />
+    <ClInclude Include="eqmac.h" />
+    <ClInclude Include="eqmac_functions.h" />
+    <ClInclude Include="eqtime.h" />
+    <ClInclude Include="eq_constants.h" />
+    <ClInclude Include="eq_dictionary.h" />
+    <ClInclude Include="eq_packet.h" />
+    <ClInclude Include="eq_packet_structs.h" />
+    <ClInclude Include="eq_stream.h" />
+    <ClInclude Include="eq_stream_factory.h" />
+    <ClInclude Include="eq_stream_ident.h" />
+    <ClInclude Include="eq_stream_intf.h" />
+    <ClInclude Include="eq_stream_locator.h" />
+    <ClInclude Include="eq_stream_proxy.h" />
+    <ClInclude Include="eq_stream_type.h" />
+    <ClInclude Include="errmsg.h" />
+    <ClInclude Include="faction.h" />
+    <ClInclude Include="features.h" />
+    <ClInclude Include="fixed_memory_hash_set.h" />
+    <ClInclude Include="fixed_memory_variable_hash_set.h" />
+    <ClInclude Include="global_define.h" />
+    <ClInclude Include="guilds.h" />
+    <ClInclude Include="guild_base.h" />
+    <ClInclude Include="ipc_mutex.h" />
+    <ClInclude Include="item.h" />
+    <ClInclude Include="item_fieldlist.h" />
+    <ClInclude Include="item_struct.h" />
+    <ClInclude Include="languages.h" />
+    <ClInclude Include="linked_list.h" />
+    <ClInclude Include="loottable.h" />
+    <ClInclude Include="mail_oplist.h" />
+    <ClInclude Include="md5.h" />
+    <ClInclude Include="memory_mapped_file.h" />
+    <ClInclude Include="misc.h" />
+    <ClInclude Include="misc_functions.h" />
+    <ClInclude Include="mutex.h" />
+    <ClInclude Include="opcodemgr.h" />
+    <ClInclude Include="opcode_dispatch.h" />
+    <ClInclude Include="op_codes.h" />
+    <ClInclude Include="packetfile.h" />
+    <ClInclude Include="packet_dump.h" />
+    <ClInclude Include="packet_dump_file.h" />
+    <ClInclude Include="packet_functions.h" />
+    <ClInclude Include="patches\patches.h" />
+    <ClInclude Include="patches\ss_declare.h" />
+    <ClInclude Include="patches\ss_define.h" />
+    <ClInclude Include="patches\ss_register.h" />
+    <ClInclude Include="patches\template.h" />
+    <ClInclude Include="patches\template_constants.h" />
+    <ClInclude Include="patches\template_ops.h" />
+    <ClInclude Include="patches\template_structs.h" />
+    <ClInclude Include="patches\trilogy.h" />
+    <ClInclude Include="patches\trilogy_constants.h" />
+    <ClInclude Include="patches\trilogy_ops.h" />
+    <ClInclude Include="patches\trilogy_structs.h" />
+    <ClInclude Include="platform.h" />
+    <ClInclude Include="proc_launcher.h" />
+    <ClInclude Include="profiler.h" />
+    <ClInclude Include="ptimer.h" />
+    <ClInclude Include="queue.h" />
+    <ClInclude Include="races.h" />
+    <ClInclude Include="random.h" />
+    <ClInclude Include="rdtsc.h" />
+    <ClInclude Include="seperator.h" />
+    <ClInclude Include="serverinfo.h" />
+    <ClInclude Include="servertalk.h" />
+    <ClInclude Include="sha1.h" />
+    <ClInclude Include="shareddb.h" />
+    <ClInclude Include="skills.h" />
+    <ClInclude Include="string_util.h" />
+    <ClInclude Include="struct_strategy.h" />
+    <ClInclude Include="tcp_basic_server.h" />
+    <ClInclude Include="tcp_connection.h" />
+    <ClInclude Include="tcp_server.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="tinyxml\tinystr.h" />
+    <ClInclude Include="tinyxml\tinyxml.h" />
+    <ClInclude Include="Trilogy.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="unix.h" />
+    <ClInclude Include="useperl.h" />
+    <ClInclude Include="uuid.h" />
+    <ClInclude Include="version.h" />
+    <ClInclude Include="web_interface_utils.h" />
+    <ClInclude Include="worldconn.h" />
+    <ClInclude Include="xml_parser.h" />
+    <ClInclude Include="zone_numbers.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
